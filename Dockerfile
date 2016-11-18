@@ -1,4 +1,4 @@
-FROM redis:3.2.3-alpine
+FROM alpine:latest
 
 MAINTAINER Chaoyi Lu <iyoahcul@gmail.com>
 
@@ -12,6 +12,8 @@ ENV TIMEZONE Asia/Shanghai
 RUN apk add tzdata
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 RUN echo $TIMEZONE > /etc/timezone
+
+RUN apk add redis
 
 VOLUME /data
 
